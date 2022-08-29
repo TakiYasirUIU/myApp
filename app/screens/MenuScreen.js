@@ -1,18 +1,15 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet, Platform } from 'react-native';
-import Constants from 'expo-constants';
+import { View, Text, Button } from 'react-native';
 
-const MenuScreen = () => {
+const MenuScreen = (props) => {
+    console.log(props);
     return (
-        <SafeAreaView>
-            <View style={styles.view}><Text>Menu Screen</Text></View>
-        </SafeAreaView>
+            <View>
+                <Text>Menu Screen</Text>
+                <Button onPress={() =>props.navigation.navigate('Dish Detail')} title="press" />
+            </View>
     )
 }
-const styles = StyleSheet.create({
-    view: {
-        paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight,
-    }
-})
+
 
 export default MenuScreen;
